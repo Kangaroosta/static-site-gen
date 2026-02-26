@@ -1,3 +1,5 @@
+import re
+
 class HTMLnode:
     def __init__(self, tag=None, value=None, children=None, props=None):
         self.tag = tag
@@ -51,3 +53,11 @@ class ParentNode(HTMLnode):
             children_html += child.to_html()
 
         return f"<{self.tag}{props}>{children_html}</{self.tag}>"
+
+def extract_markdown_images(text):
+    matches = re.findall(r"!\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
+    return matches
+
+def extract_markdown_links(text):
+    matches = re.findall(r"(?<!!)\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
+    return matches
