@@ -1,9 +1,7 @@
 from textnode import *
-
-print("hello world")
+from copystatic import copy_source
 
 def main():
-    test = TextNode("This is some anchor text", "link", "https://www.boot.dev")
-    print(test)
+    copy_source()
 
 main()
